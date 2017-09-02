@@ -1,5 +1,5 @@
 angular.module('myApp').controller('listAllController', function($scope, $stateParams, localStorageService){
-    $scope.allStudents = localStorageService.get('students');
+    $scope.allStudents = localStorageService.get('studentsZD_App2');
     
     $scope.deleteStudent = function(studentToDelete){
         
@@ -8,6 +8,6 @@ angular.module('myApp').controller('listAllController', function($scope, $stateP
                 $scope.allStudents.splice($scope.allStudents.indexOf(student));
         }, this);
 
-        localStorageService.set('students', $scope.allStudents);
+        localStorageService.set('studentsZD_App2', $scope.allStudents);
     }
 })

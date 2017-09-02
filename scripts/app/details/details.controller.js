@@ -1,5 +1,5 @@
 angular.module('myApp').controller('detailsController', function($scope, $stateParams, localStorageService){
-    $scope.allStudents = localStorageService.get('students');
+    $scope.allStudents = localStorageService.get('studentsZD_App2');
 
     var studentRequested = null;
 
