@@ -5,7 +5,7 @@ angular.module('myApp').controller('listAllController', function($scope, $stateP
         
         $scope.allStudents.forEach(function(student) {
             if(student === studentToDelete)
-                $scope.allStudents.splice($scope.allStudents.indexOf(student));
+                $scope.allStudents.splice($scope.allStudents.indexOf(student),1);
         }, this);
 
         localStorageService.set('studentsZD_App2', $scope.allStudents);
