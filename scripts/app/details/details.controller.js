@@ -1,7 +1,19 @@
-angular.module('myApp').controller('detailsController', function($scope, $stateParams){
-    $scope.studentName = $stateParams.studentName;
-    $scope.studentLastName = $stateParams.studentLastName;
-    $scope.studentId = $stateParams.studentId;
-    $scope.studentGrade = $stateParams.studentGrade
+angular.module('myApp').controller('detailsController', function($scope, $stateParams, localStorageService){
+    $scope.allStudents = localStorageService.get('students');
+
+    var studentRequested = null;
+
+    $scope.allStudents.forEach(function(student) {
+
+        //typeof($stateParams.studentId) is string, therefore, '==' operator is used
+        if(student.id == $stateParams.studentId)
+            studentRequested = student;
+
+    }, this);
+
+    $scope.studentName = studentRequested.name;
+    $scope.studentLastName = studentRequested.lastName;
+    $scope.studentId = studentRequested.id;
+    $scope.studentGrade = studentRequested.grade;
     
 })
